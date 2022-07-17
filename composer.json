@@ -1,5 +1,5 @@
 {
-    "name": "thedeparted/laravel-backup-database",
+    "name": "thedepart3d/laravel-backup-database",
     "keywords": [
       "laravel",
       "source",
@@ -15,13 +15,13 @@
     "license": "GPL-3.0",
     "authors": [
       {
-        "name": "The Departed",
+        "name": "The Depart3d",
         "email": "thedepart3d@protonmail.com"
       }
     ],
     "autoload": {
       "psr-4": {
-        "thedeparted\\LaravelBackupDatabase\\": "src"
+        "thedepart3d\\LaravelBackupDatabase\\": "src"
       }
     },
     "config": {
@@ -31,7 +31,7 @@
     "extra": {
       "laravel": {
         "providers": [
-          "thedeparted\\LaravelBackupDatabase\\BackupDatabaseServiceProvider"
+          "thedepart3d\\LaravelBackupDatabase\\BackupDatabaseServiceProvider"
         ]
       }
     }

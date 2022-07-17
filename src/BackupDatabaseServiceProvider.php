@@ -8,7 +8,7 @@
  * @link        https://github.com/theDepart3d/laravel-database-backup
  */
 
-namespace thedeparted\LaravelBackupDatabase;
+namespace thedepart3d\LaravelBackupDatabase;
 
 use Illuminate\Support\ServiceProvider;
 
