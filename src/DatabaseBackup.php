@@ -40,7 +40,7 @@ class DatabaseBackup extends Command
     {
         if (env('DB_CONNECTION') == 'mysql') {
             $this->withProgressBar(User::all(), function () {
-                $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".sql.gz";
+                $filename = "backup-mysql-" . Carbon::now()->format('Y-m-d') . ".sql.gz";
                 // Create backup folder and set permission if not exist.
                 $storageAt = storage_path() . "/app/backup/sql/";
                 if(!File::exists($storageAt)) {
@@ -49,14 +49,28 @@ class DatabaseBackup extends Command
                 $command = "mysqldump --user=" . env('DB_USERNAME') ." --password='" . env('DB_PASSWORD') . "' --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . "  | gzip > " . $storageAt . $filename;
                 $returnVar = NULL;
                 $output = NULL;
+                sleep(2);
                 if (exec($command, $output, $returnVar)) {
                     $this->advance();
                 }
             });
-        } else {
-            $this->error('                                ');
-            $this->error('  ERROR: SQLite Not Supported!  ');
-            $this->error('                                ');
+        } elseif (env('DB_CONNECTION') == 'sqlite') {
+            $this->withProgressBar(User::all(), function () {
+                $filename = "backup-sqlite-" . Carbon::now()->format('Y-m-d') . ".sql.gz";
+                // Create backup folder and set permission if not exist.
+                $storageAt = storage_path() . "/app/backup/sql/";
+                if(!File::exists($storageAt)) {
+                    File::makeDirectory($storageAt, 0755, true, true);
+                }
+                $command = "sqlite3 " . env('DB_DATABASE') . " .dump | gzip > " . $storageAt . $filename;
+                $returnVar = NULL;
+                $output = NULL;
+                sleep(2);
+                if (exec($command, $output, $returnVar)) {
+                    $this->advance();
+                }
+            });
         }
+        print "\r\n";
     }
 }
