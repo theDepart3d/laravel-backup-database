@@ -1,0 +1,39 @@
+{
+    "name": "thedeparted/laravel-backup-database",
+    "keywords": [
+      "laravel",
+      "source",
+      "database",
+      "mysql",
+      "backup"
+    ],
+    "type": "library",
+    "require": {
+      "php": ">=8.1.0"
+    },
+    "description": "Laravel Backup Database",
+    "license": "GPL-3.0",
+    "authors": [
+      {
+        "name": "The Departed",
+        "email": "thedepart3d@protonmail.com"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "thedeparted\\LaravelBackupDatabase\\": "src"
+      }
+    },
+    "config": {
+      "optimize-autoloader": true,
+      "sort-packages": true
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "thedeparted\\LaravelBackupDatabase\\BackupDatabaseServiceProvider"
+        ]
+      }
+    }
+  }
+    
