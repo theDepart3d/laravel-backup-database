@@ -3,7 +3,7 @@ Simple Laravel Database Backup
 
 # Installation
 
-composer require thedeparted/laravel-backup-database
+composer require thedepart3d/laravel-backup-database
 
 # Publis Console Commands File
 
